@@ -1,0 +1,64 @@
+{
+  "articles": [
+    {
+      "id": "KB001",
+      "title": "How to Track Your Order",
+      "category": "shipping",
+      "content": "To track your TechMart order, log in to your account and go to 'My Orders'. Click on the order number to see real-time tracking information. You can also use the tracking number sent to your email with our shipping partner's website. Standard shipping takes 3-5 business days, express shipping takes 1-2 business days."
+    },
+    {
+      "id": "KB002",
+      "title": "Return and Refund Policy",
+      "category": "returns_refunds",
+      "content": "TechMart offers a 30-day return policy for most items. Products must be in original packaging and unused condition. To initiate a return, go to 'My Orders', select the item, and click 'Request Return'. Refunds are processed within 5-7 business days after we receive the item. Opened software and digital products are non-returnable. Defective items can be returned within 90 days."
+    },
+    {
+      "id": "KB003",
+      "title": "Payment Issues and Failed Transactions",
+      "category": "payment",
+      "content": "If your payment failed, please check: 1) Your card has sufficient funds, 2) The billing address matches your card, 3) Your card isn't expired. If the issue persists, try a different payment method. Double charges are usually temporary authorization holds that disappear within 3-5 business days. For persistent payment issues, contact your bank first."
+    },
+    {
+      "id": "KB004",
+      "title": "Common Product Defect Procedures",
+      "category": "product_defect",
+      "content": "If you received a defective product: 1) Take photos of the defect, 2) Note your order number, 3) Contact support with details. For items under warranty (1 year for electronics, 2 years for appliances), we offer free replacement or repair. For items outside warranty, we can offer a discounted replacement. Do NOT attempt to repair the product yourself as it voids the warranty."
+    },
+    {
+      "id": "KB005",
+      "title": "Account Access and Password Reset",
+      "category": "account",
+      "content": "To reset your password, click 'Forgot Password' on the login page and enter your registered email. You'll receive a reset link within 5 minutes. If you don't receive it, check your spam folder. For locked accounts (after 5 failed attempts), the account unlocks automatically after 30 minutes. For compromised accounts, contact support immediately for manual verification."
+    },
+    {
+      "id": "KB006",
+      "title": "Shipping Delays and Lost Packages",
+      "category": "shipping",
+      "content": "If your package is delayed beyond the estimated delivery date: 1) Check tracking for updates, 2) Weather and holidays may cause 1-2 day delays. If tracking shows 'delivered' but you haven't received it: check with neighbours, your building's front desk, or any safe spots. If still missing after 48 hours, file a claim through 'My Orders'. We'll investigate and either reship or refund within 3 business days."
+    },
+    {
+      "id": "KB007",
+      "title": "Order Cancellation",
+      "category": "order_issue",
+      "content": "You can cancel an order within 1 hour of placing it through 'My Orders' > 'Cancel Order'. After 1 hour, if the order hasn't been shipped yet, contact support for cancellation. Once an order is shipped, it cannot be cancelled — you'll need to wait for delivery and then initiate a return. Refund for cancelled orders is processed within 2-3 business days."
+    },
+    {
+      "id": "KB008",
+      "title": "Warranty Claims Process",
+      "category": "product_defect",
+      "content": "To file a warranty claim: 1) Locate your order number and purchase date, 2) Describe the issue in detail, 3) Provide photos or videos if possible. Standard warranty covers manufacturing defects for 1 year from purchase. Extended warranty (if purchased) covers an additional 1-2 years. Accidental damage is NOT covered under standard warranty. Warranty claims are processed within 5-7 business days."
+    },
+    {
+      "id": "KB009",
+      "title": "Technical Support for Smart Devices",
+      "category": "technical",
+      "content": "For smart device issues: 1) Try restarting the device, 2) Ensure firmware is updated to the latest version, 3) Reset to factory settings if problems persist. For connectivity issues, check your Wi-Fi signal strength and ensure the device is within range. For app-related issues, clear the app cache or reinstall the TechMart Home app. If the issue persists after troubleshooting, we can arrange a replacement."
+    },
+    {
+      "id": "KB010",
+      "title": "Bulk Orders and Business Accounts",
+      "category": "order_issue",
+      "content": "TechMart offers business accounts with volume discounts for orders of 10+ units. Business accounts get dedicated support, net-30 payment terms, and priority shipping. To set up a business account, provide your company details and tax ID. Existing business account holders can place orders through their dedicated account manager or the B2B portal."
+    }
+  ]
+}
