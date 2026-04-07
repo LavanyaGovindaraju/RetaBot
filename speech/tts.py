@@ -21,27 +21,30 @@ async def _synthesize(text: str, voice: str) -> bytes:
     return buf.getvalue()
 
 
+def _run_synthesis(text: str, voice: str) -> bytes:
+    """Run async synthesis in a dedicated thread with its own event loop."""
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        return loop.run_until_complete(_synthesize(text, voice))
+    finally:
+        loop.close()
+
+
 def text_to_speech(text: str, voice: str = "en-US-JennyNeural") -> bytes:
     """Convert text to speech audio bytes (MP3).
 
     Returns raw MP3 bytes that can be played or saved.
+    Always runs in a separate thread with its own event loop to avoid
+    conflicts with Streamlit's running event loop on Windows.
     """
     if not text or not text.strip():
         return b""
     try:
-        # Handle case where an event loop is already running (e.g. in Streamlit)
-        try:
-            loop = asyncio.get_running_loop()
-        except RuntimeError:
-            loop = None
-
-        if loop and loop.is_running():
-            import concurrent.futures
-            with concurrent.futures.ThreadPoolExecutor() as pool:
-                audio_bytes = pool.submit(asyncio.run, _synthesize(text, voice)).result()
-        else:
-            audio_bytes = asyncio.run(_synthesize(text, voice))
-        return audio_bytes
+        import concurrent.futures
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
+            future = pool.submit(_run_synthesis, text, voice)
+            return future.result(timeout=30)
     except Exception as e:
         logger.error("TTS failed: %s", e)
         return b""

@@ -113,6 +113,8 @@ for msg in st.session_state.chat_history:
         if msg.get("sentiment"):
             emoji = {"positive": "😊", "neutral": "😐", "negative": "😟", "frustrated": "😤"}.get(msg["sentiment"], "")
             st.caption(f"Sentiment: {emoji} {msg['sentiment']}")
+        if msg.get("audio"):
+            st.audio(msg["audio"], format="audio/mp3")
 
 # Audio input
 audio_input = st.audio_input("🎙️ Or speak your message", key=f"audio_in_{st.session_state.audio_key}")
@@ -129,11 +131,12 @@ if audio_input and not st.session_state.conversation_ended:
                 reply = agent.chat(transcribed)
                 sentiment = agent.messages[-2].sentiment
                 st.session_state.chat_history[-1]["sentiment"] = sentiment.value if sentiment else None
-                st.session_state.chat_history.append({"role": "assistant", "content": reply})
-            if tts_on:
-                audio_data = text_to_speech(reply, config.TTS_VOICE)
-                if audio_data:
-                    st.audio(audio_data, format="audio/mp3")
+                assistant_msg = {"role": "assistant", "content": reply}
+                if tts_on:
+                    audio_data = text_to_speech(reply, config.TTS_VOICE)
+                    if audio_data:
+                        assistant_msg["audio"] = audio_data
+                st.session_state.chat_history.append(assistant_msg)
             # Reset audio widget so it doesn't re-trigger
             st.session_state.audio_key += 1
             st.rerun()
@@ -149,10 +152,11 @@ if prompt := st.chat_input("Type your message...", disabled=st.session_state.con
             reply = agent.chat(prompt)
             sentiment = agent.messages[-2].sentiment
             st.session_state.chat_history[-1]["sentiment"] = sentiment.value if sentiment else None
-            st.session_state.chat_history.append({"role": "assistant", "content": reply})
-            st.write(reply)
+            assistant_msg = {"role": "assistant", "content": reply}
             if tts_on:
                 audio_data = text_to_speech(reply, config.TTS_VOICE)
                 if audio_data:
-                    st.audio(audio_data, format="audio/mp3")
+                    assistant_msg["audio"] = audio_data
+            st.session_state.chat_history.append(assistant_msg)
+            st.write(reply)
     st.rerun()
