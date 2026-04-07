@@ -234,6 +234,7 @@ python cli.py
 - **Webhooks** — Integrate with ticketing systems (Zendesk, Freshdesk) to create tickets from conversations
 - **Rate limiting** — Add request rate limiting for production deployment
 - **Observability** — Add structured logging, tracing, and metrics
+- **Image attachments** — Allow customers to attach images (e.g., photos of defective products, screenshots of errors) for visual context during support conversations
 
 ---
 
